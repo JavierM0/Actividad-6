@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 6</title>
+</head>
+<body>
+    <p>Nombre</p>
+    <input type="text" id="nombre">
+    <button onclick="agregarNombre()">Agregar</button>
+    <button onclick="limpiar()">Limpiar</button>
+    <ul id="lista"></ul>
+
+    <script>
+        
+        let lista = document.getElementById("lista");
+        let nombres = [];
+
+        const mostrarNombres = () => nombres.map(valor => {
+            let variableLi = document.createElement("Li");
+            variableLi.innerHTML = valor;
+            lista.appendChild(variableLi);
+        })
+
+        const agregarNombre = () => {
+            let nombre = document.getElementById("nombre");
+            lista.innerHTML = "";
+            nombres.push(nombre.value);
+            mostrarNombres();
+            nombre.value = "";
+        }
+
+        const limpiar = () => {
+            lista.innerHTML = "";
+            nombre.value = "";
+        }
+
+        mostrarNombres();
+
+    </script>
+</body>
+</html>
